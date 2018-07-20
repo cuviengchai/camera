@@ -1,18 +1,4 @@
 <div id="app">
-    <div class="row">
-        <button (click)="firstModal.open()">modal with custom header content and footer</button>
-        <modal #firstModal>
-            <modal-header>
-                <h1>I am first modal</h1>
-            </modal-header>
-            <modal-content>
-                This modal has its own header, content and footer.
-            </modal-content>
-            <modal-footer>
-                <button class="btn btn-primary" (click)="firstModal.close()">okay!</button>
-            </modal-footer>
-        </modal>
-    </div>
     <div><video #video id="video" width="640" height="480" autoplay></video></div>
     <div><button id="snap" (click)="capture()">Snap Photo</button></div>
     <canvas #canvas id="canvas" width="640" height="480"></canvas>
@@ -22,4 +8,5 @@
         </li>
     </ul>
     <img #watermark id="watermark" src="../../../assets/images/signature.png" width="640" height="480">
+    <img #watermarksmall id="watermark_small" src="../../../assets/images/signature_small.png">
 </div>

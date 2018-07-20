@@ -7,9 +7,9 @@ import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 export class CaptureComponent implements AfterViewInit {
 
   @ViewChild('video') public video: ElementRef;
-
   @ViewChild('canvas') public canvas: ElementRef;
   @ViewChild('watermark') public watermark: ElementRef;
+  @ViewChild('watermarksmall') public watermark_small: ElementRef;
   public captures: Array<any>;
 
   public constructor() {
@@ -28,7 +28,21 @@ export class CaptureComponent implements AfterViewInit {
   public capture() {
     const context = this.canvas.nativeElement.getContext('2d');
     context.drawImage(this.video.nativeElement, 0, 0, 640, 480);
+    // -------- Big Background --------
     context.drawImage(this.watermark.nativeElement, 1, 0, 640, 480);
+
+    // // -------- Small Backgroud --------
+    // const pattern = context.createPattern(this.watermark_small, 'repeat');
+    // context.rect(0, 0, this.canvas.nativeElement.width, this.canvas.nativeElement.height);
+    // context.fillStyle = pattern;
+    // context.fill();
+
+    // // -------- Text --------
+    // context.font = '45px serif';
+    // context.fillStyle = '#000000';
+    // const today = new Date();
+    // const text = 'สำเนาถูกต้อง\nไง' + today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+    // context.fillText(text, 100, 100);
 
     const img_data = context.getImageData(0, 0, 640, 480);
     const data = img_data.data;

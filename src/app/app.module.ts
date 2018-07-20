@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CanvasComponent } from './components/canvas/canvas.component';
 import { CaptureComponent } from './components/capture/capture.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -15,12 +16,13 @@ import { ModalComponent } from './components/modal/modal.component';
     MycomponentComponent,
     CanvasComponent,
     CaptureComponent,
-    ModalComponent
+    ModalComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
