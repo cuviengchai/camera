@@ -1,30 +1,30 @@
 import { Injectable } from '@angular/core';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { CameraModalComponent } from '../components/modals/camera-modal/camera-modal.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ModalService {
   private modals: any[] = [];
+  constructor(private activeModal: NgbModal) {
 
-  add(modal: any) {
-    // add modal to array of active modals
-    this.modals.push(modal);
+  }
+  openCameraModal() {
+    this.activeModal.open(CameraModalComponent).result.then((result) => {
+      console.log(`Closed with: ${result}`);
+    }, (reason) => {
+      console.log(`Dismissed ${this.getDismissReason(reason)}`);
+    });
   }
 
-  remove(id: string) {
-    // remove modal from array of active modals
-    this.modals = this.modals.filter(x => x.id !== id);
-  }
-
-  open(id: string) {
-    // open modal specified by id
-    const modal: any = this.modals.filter(x => x.id === id)[0];
-    modal.open();
-  }
-
-  close(id: string) {
-    // close modal specified by id
-    const modal: any = this.modals.filter(x => x.id === id)[0];
-    modal.close();
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return  `with: ${reason}`;
+    };
   }
 }

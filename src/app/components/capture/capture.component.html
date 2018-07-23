@@ -1,12 +1,12 @@
 <div id="app">
-    <div><video #video id="video" width="640" height="480" autoplay></video></div>
+    <div><video #videoElement id="video" width="450" height="auto" autoplay playinline></video></div>
     <div><button id="snap" (click)="capture()">Snap Photo</button></div>
-    <canvas #canvas id="canvas" width="640" height="480"></canvas>
+    <canvas #canvas id="canvas" width="1280" height="720"></canvas>
     <ul>
         <li *ngFor="let c of captures">
             <img src="{{ c }}" height="50" />
         </li>
     </ul>
-    <img #watermark id="watermark" src="../../../assets/images/signature.png" width="640" height="480">
-    <img #watermarksmall id="watermark_small" src="../../../assets/images/signature_small.png">
+    <!-- <img #watermark id="watermark" src="../../../assets/images/signature.png" width="640" height="480"> -->
+    <img #watermarksmall id="watermark_small" src="../../../assets/images/sample.png">
 </div>

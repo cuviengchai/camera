@@ -16,11 +16,11 @@ export class HomeComponent implements OnInit {
   }
 
   openModal(id: string) {
-      this.modalService.open(id);
+      this.modalService.openCameraModal();
   }
 
-  closeModal(id: string) {
-      this.modalService.close(id);
-  }
+//   closeModal(id: string) {
+//       this.modalService.(id);
+//   }
 
 }
